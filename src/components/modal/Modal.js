@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-function SaveModal({ show, handleClose }) {
+function SaveModal({ show, handleClose, handleExit }) {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
@@ -13,10 +13,10 @@ function SaveModal({ show, handleClose }) {
       </Modal.Body>
 
       <Modal.Footer>
-        <Button variant="secondary" onClick={(e) => handleClose(e, true)}>
-          exit
+        <Button variant="secondary" onClick={(e) => handleExit(e)}>
+          Exit
         </Button>
-        <Button variant="danger" onClick={(e) => handleClose(e, false)}>
+        <Button variant="danger" onClick={(e) => handleClose(e)}>
           Cancel
         </Button>
       </Modal.Footer>

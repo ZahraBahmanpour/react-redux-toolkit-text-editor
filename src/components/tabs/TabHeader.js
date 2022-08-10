@@ -18,13 +18,22 @@ export default function TabHeader({ title, id, unSaved }) {
   };
   return (
     <>
-      {isModalOpen && <SaveModal show={isModalOpen} id={id} />}
+      {isModalOpen && (
+        <SaveModal
+          show={isModalOpen}
+          handleClose={() => setIsModalOpen(false)}
+          handleExit={closeHandler}
+        />
+      )}
       <div
         onClick={clickHandler}
         style={{ color: unSaved ? "red" : "inherit" }}
       >
         {title.slice(0, 10)}...
-        <IoCloseSharp className="text-danger" onClick={closeHandler} />
+        <IoCloseSharp
+          className="text-danger"
+          onClick={(e) => (unSaved ? setIsModalOpen(true) : closeHandler(e))}
+        />
       </div>
     </>
   );
