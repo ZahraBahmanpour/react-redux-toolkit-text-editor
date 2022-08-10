@@ -12,8 +12,9 @@ export default function TabHeader({ title, id, unSaved }) {
   const clickHandler = () => {
     navigate(`/${id}`);
   };
-  const closeHandler = () => {
+  const closeHandler = (e) => {
     dispatch(closeTab({ id }));
+    e.stopPropagation();
   };
   return (
     <>
