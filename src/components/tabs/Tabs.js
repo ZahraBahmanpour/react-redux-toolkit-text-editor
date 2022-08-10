@@ -1,8 +1,10 @@
 import { Tabs as Tabbs, Tab } from "react-bootstrap";
-import tabs from "../../data/tabs";
 import TabContent from "./TabContent";
 import TabHeader from "./TabHeader";
+import { useSelector } from "react-redux";
+
 function Tabs() {
+  const { tabs } = useSelector((state) => state.tabs);
   return (
     <div style={{ width: "100%" }}>
       <Tabbs
