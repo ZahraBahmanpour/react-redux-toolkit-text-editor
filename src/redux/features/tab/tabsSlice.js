@@ -19,7 +19,7 @@ export const tabsSlice = createSlice({
       return {
         ...state,
         tabs: state.tabs.map((tab) =>
-          tab.id === id ? { ...tab, tempBody } : tab
+          tab.id === id ? { ...tab, tempBody, unSaved: true } : tab
         ),
       };
     },

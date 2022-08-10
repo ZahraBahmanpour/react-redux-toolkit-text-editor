@@ -18,7 +18,10 @@ export default function TabHeader({ title, id, unSaved }) {
   return (
     <>
       {isModalOpen && <SaveModal show={isModalOpen} id={id} />}
-      <div onClick={clickHandler}>
+      <div
+        onClick={clickHandler}
+        style={{ color: unSaved ? "red" : "inherit" }}
+      >
         {title.slice(0, 10)}...
         <IoCloseSharp className="text-danger" onClick={closeHandler} />
       </div>
