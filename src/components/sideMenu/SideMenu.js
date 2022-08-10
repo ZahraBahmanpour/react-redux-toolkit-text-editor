@@ -6,9 +6,14 @@ import { openTab } from "../../redux/features/tab/tabsSlice";
 
 function SideMenu() {
   const dispatch = useDispatch();
+  const handleCreateNew = () => {
+    const id = Math.floor(Math.random() * 10000);
+    const title = prompt("Enter file name", "Untitled");
+    dispatch(openTab({ id, title, body: "", tempBody: "" }));
+  };
   return (
     <ListGroup>
-      <ListGroup.Item>
+      <ListGroup.Item onClick={handleCreateNew}>
         <Link to="#">Create File</Link>
       </ListGroup.Item>
       {posts.map((item) => (
