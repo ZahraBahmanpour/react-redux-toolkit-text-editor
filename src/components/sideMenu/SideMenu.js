@@ -12,7 +12,10 @@ function SideMenu() {
         <Link to="#">Create File</Link>
       </ListGroup.Item>
       {posts.map((item) => (
-        <ListGroup.Item key={item.id} onClick={() => dispatch(openTab(item))}>
+        <ListGroup.Item
+          key={item.id}
+          onClick={() => dispatch(openTab({ ...item, tempBody: item.body }))}
+        >
           <Link to={`/${item.id}`}>{item.title.slice(0, 15)}...</Link>
         </ListGroup.Item>
       ))}
