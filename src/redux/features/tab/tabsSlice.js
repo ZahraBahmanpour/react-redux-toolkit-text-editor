@@ -9,9 +9,10 @@ export const tabsSlice = createSlice({
   initialState,
   reducers: {
     openTab: (state, action) => {
+      const exist = state.tabs.find((tab) => tab.id === action.payload.id);
       return {
         ...state,
-        tabs: [...state.tabs, action.payload],
+        tabs: exist ? state.tabs : [...state.tabs, action.payload],
         activeKey: action.payload.id,
       };
     },
