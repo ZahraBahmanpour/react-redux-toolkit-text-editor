@@ -1,4 +1,4 @@
-const data = [
+const posts = [
   {
     userId: 1,
     id: 1,
@@ -31,4 +31,4 @@ const data = [
     body: "repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvoluptatem omnis possimus esse voluptatibus quis\nest aut tenetur dolor neque",
   },
 ];
-export default data;
+export default posts;

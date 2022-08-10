@@ -1,4 +1,7 @@
 import { Tabs as Tabbs, Tab } from "react-bootstrap";
+import tabs from "../../data/tabs";
+import TabContent from "./TabContent";
+import TabHeader from "./TabHeader";
 function Tabs() {
   return (
     <div style={{ width: "100%" }}>
@@ -7,15 +10,11 @@ function Tabs() {
         defaultActiveKey="home"
         className="mb-3"
       >
-        <Tab eventKey="home" title="Home">
-          Home
-        </Tab>
-        <Tab eventKey="profile" title="Profile">
-          Profile
-        </Tab>
-        <Tab eventKey="contact" title="Contact">
-          Contact
-        </Tab>
+        {tabs.map((tab) => (
+          <Tab key={tab.id} eventKey={tab.id} title={<TabHeader {...tab} />}>
+            <TabContent body={tab.tempBody} id={tab.id} />
+          </Tab>
+        ))}
       </Tabbs>
     </div>
   );

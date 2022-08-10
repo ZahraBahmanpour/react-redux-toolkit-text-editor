@@ -1,6 +1,6 @@
 import { ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import posts from "../../data/data";
+import posts from "../../data/posts";
 
 function SideMenu() {
   return (
