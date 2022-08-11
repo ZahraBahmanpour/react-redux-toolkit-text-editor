@@ -1,11 +1,17 @@
 import { ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import posts from "../../data/posts";
-import { useDispatch } from "react-redux";
+// import posts from "../../data/posts";
+import { useDispatch, useSelector } from "react-redux";
 import { openTab } from "../../redux/features/tab/tabsSlice";
+import { useEffect } from "react";
+import { fetchPosts } from "../../redux/features/post/postSlice";
 
 function SideMenu() {
   const dispatch = useDispatch();
+  const { posts } = useSelector((state) => state.posts);
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, []);
   const handleCreateNew = () => {
     const id = Math.floor(Math.random() * 10000);
     const title = prompt("Enter file name", "Untitled");
