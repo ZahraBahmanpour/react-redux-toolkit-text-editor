@@ -17,7 +17,7 @@ function Tabs() {
       >
         {tabs.map((tab) => (
           <Tab key={tab.id} eventKey={tab.id} title={<TabHeader {...tab} />}>
-            <TabContent body={tab.tempBody} id={tab.id} />
+            <TabContent {...tab} />
           </Tab>
         ))}
       </Tabbs>

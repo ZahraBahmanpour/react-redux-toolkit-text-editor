@@ -33,9 +33,20 @@ export const tabsSlice = createSlice({
         ),
       };
     },
+    saveTab: (state, action) => {
+      const { id } = action.payload;
+      console.log(id);
+      return {
+        ...state,
+        tabs: state.tabs.map((tab) =>
+          tab.id === id ? { ...tab, unSaved: false } : tab
+        ),
+      };
+    },
   },
 });
 
-export const { openTab, closeTab, updateTab, activeTab } = tabsSlice.actions;
+export const { openTab, closeTab, updateTab, activeTab, saveTab } =
+  tabsSlice.actions;
 
 export default tabsSlice.reducer;
